@@ -1,14 +1,28 @@
 import { faker } from '@faker-js/faker';
+import { useEffect, useState } from 'react';
 
 
-const suggestions = [...Array(5)].map((_, i) => ({
-    id: i,
-    username: faker.internet.userName(),
-    avatar: faker.image.avatar(),
-    company: faker.company.companyName()
-}))
+// const suggestions = [...Array(0)].map((_, i) => ({
+    //  id: i,
+    //  username: faker.internet.userName(),
+    //  avatar: faker.image.avatar(),
+    //  company: faker.company.companyName()
+// }))
 
 function Suggestions() {
+    const [suggestions, setSuggestions] = useState([]);
+
+    useEffect(() => {
+        const suggestions = [...Array(5)].map((_, i) => ({
+            id: i,
+            username: faker.internet.userName(),
+            avatar: faker.image.avatar(),
+            company: faker.company.companyName()
+        }));
+
+        setSuggestions(suggestions);
+    }, []);
+
 
     return (
         <div className='mt-4 ml-10'>

@@ -4,15 +4,20 @@ import { useEffect, useState } from 'react';
 import { useSession } from "next-auth/react"
 
 
-const suggestions = [...Array(20)].map((_, i) => ({
-  id: i,
-  username: faker.internet.userName(),
-  avatar: faker.image.avatar()
-}))
-
-
-
 function Stories() {
+  const [suggestions, setSuggestions] = useState([]);
+
+    useEffect(() => {
+        const suggestions = [...Array(15)].map((_, i) => ({
+            id: i,
+            username: faker.internet.userName(),
+            avatar: faker.image.avatar(),
+            company: faker.company.companyName()
+        }));
+
+        setSuggestions(suggestions);
+    }, []);
+
   const { data: session } = useSession();
 
   return (
