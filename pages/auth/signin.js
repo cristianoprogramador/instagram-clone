@@ -9,7 +9,7 @@ export default function SignIn({ providers }) {
             <div className="flex flex-col items-center justify-center min-h-screen py-2 -mt-20 px-14 text-center">
                 <img className="w-80" src="https://links.papareact.com/ocw" alt="" />
                 <p className="font-xs italic">
-                    This is not a Real app, it is built for education purposes only
+                    This is not a Real app, it is built for getting a job purposes only
                 </p>
                 <div className="mt-40">
                     {Object.values(providers).map((provider) => (
